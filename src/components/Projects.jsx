@@ -20,7 +20,7 @@ const projectsData = [
   { img: img4, link: '#' },
   { img: img5, link: '#' },
   { img: img6, link: '#' },
-  { img: img7, link: 'https://my-portfolio-five-xi-66.vercel.app/' }, 
+  { img: img7, link: 'https://tos-tuition-app.vercel.app/' }, 
   { img: img8, link: '#' },
 ];
 
