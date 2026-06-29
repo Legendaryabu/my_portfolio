@@ -13,7 +13,16 @@ import img8 from '../assets/project/image-8.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projectImages = [img1, img2, img3, img4, img5, img6, img7, img8];
+const projectsData = [
+  { img: img1, link: '#' },
+  { img: img2, link: 'https://emptask.infinityfree.io/login.php' },
+  { img: img3, link: '#' },
+  { img: img4, link: '#' },
+  { img: img5, link: '#' },
+  { img: img6, link: '#' },
+  { img: img7, link: 'https://my-portfolio-five-xi-66.vercel.app/' }, 
+  { img: img8, link: '#' },
+];
 
 const Projects = () => {
   const containerRef = useRef(null);
@@ -255,15 +264,20 @@ const Projects = () => {
           </div>
 
           {/* Desktop Project Cards */}
-          {projectImages.map((img, i) => (
+          {projectsData.map((project, i) => (
             <div 
               key={i}
               ref={el => cardsRef.current[i] = el}
               className="hidden md:block absolute w-[75vw] md:w-[28vw] max-w-[340px] aspect-video will-change-transform"
               style={{ zIndex: 10 + i }}
             >
-              <div className="w-full h-full rounded-[28px] overflow-hidden border border-white/60 bg-white shadow-[0_15px_35px_rgba(0,0,0,0.1)] transition-all duration-500 group hover:scale-[1.03] hover:shadow-[0_30px_60px_rgba(0,0,0,0.15)] hover:-translate-y-2 cursor-pointer relative z-10 will-change-transform">
-                <img src={img} alt={`Project ${i+1}`} className="w-full h-full object-cover" loading="lazy" />
+              <a 
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                className="block w-full h-full rounded-[28px] overflow-hidden border border-white/60 bg-white shadow-[0_15px_35px_rgba(0,0,0,0.1)] transition-all duration-500 group hover:scale-[1.03] hover:shadow-[0_30px_60px_rgba(0,0,0,0.15)] hover:-translate-y-2 cursor-pointer relative z-10 will-change-transform"
+              >
+                <img src={project.img} alt={`Project ${i+1}`} className="w-full h-full object-cover" loading="lazy" />
                 
                 {/* Explore Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -272,7 +286,7 @@ const Projects = () => {
                 
                 {/* Glow ring on hover */}
                 <div className="absolute inset-0 border-[3px] border-transparent group-hover:border-white/50 rounded-[28px] transition-colors duration-500 pointer-events-none" />
-              </div>
+              </a>
             </div>
           ))}
 
@@ -301,15 +315,20 @@ const Projects = () => {
           .hide-scrollbar::-webkit-scrollbar { display: none; }
           .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         `}</style>
-        {projectImages.map((img, i) => (
+        {projectsData.map((project, i) => (
           <div 
             key={`mob-${i}`}
             ref={el => mobileCardsRef.current[i] = el}
             className="shrink-0 w-[75vw] aspect-video snap-center will-change-transform relative z-10"
           >
-            <div className="w-full h-full rounded-[24px] overflow-hidden border border-white/60 bg-white shadow-[0_15px_35px_rgba(0,0,0,0.1)] transition-all duration-500">
-              <img src={img} alt={`Project ${i+1}`} className="w-full h-full object-cover" loading="lazy" />
-            </div>
+            <a 
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="block w-full h-full rounded-[24px] overflow-hidden border border-white/60 bg-white shadow-[0_15px_35px_rgba(0,0,0,0.1)] transition-all duration-500"
+            >
+              <img src={project.img} alt={`Project ${i+1}`} className="w-full h-full object-cover" loading="lazy" />
+            </a>
           </div>
         ))}
       </div>
